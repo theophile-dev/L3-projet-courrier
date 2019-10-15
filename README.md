@@ -39,7 +39,7 @@ $ java -jar ./COURRIER/target/*.jar
 ```
 $ mvn javadoc:javadoc
 ```
-The Javadoc generated can be found in /COURRIR/target/docs/index.html
+The Javadoc generated can be found in /COURRIER/target/docs/index.html
 
 ### Key aspect of the project
 
