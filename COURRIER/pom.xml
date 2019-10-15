@@ -54,7 +54,7 @@
           <configuration>
             <archive>
               <manifest>
-                <mainClass>XXX à adpater XXX</mainClass>
+                <mainClass>fil.coo.Courrier</mainClass>
               </manifest>
             </archive>
           </configuration>
