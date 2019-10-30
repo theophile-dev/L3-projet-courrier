@@ -4,7 +4,9 @@ public abstract class Letter<T extends Content>{
 	private Inhabitant sender;
 	private Inhabitant receiver;
 	private T content;
-	private float cost;
+	private double cost;
+	private int letterNumber;
+	private static int numberOfLetter = 0;
 	
 	
 	/**
@@ -16,27 +18,46 @@ public abstract class Letter<T extends Content>{
 		this.sender = sender;
 		this.receiver = receiver;
 		this.content = content;
+		this.cost = 0;
+		this.letterNumber = Letter.numberOfLetter;
+		Letter.numberOfLetter++;
 	}
 	
 	/**
 	 * The action is triggered when an inhabitant open the letter
 	 */
 	public abstract void action();
-
-	public Inhabitant getSender() {
-		return sender;
+	
+	public String getName() {
+		return "Courrier" + this.getLetterNumber();
+	}
+	
+	public String getDescription() {
+		return this.getName() + "(cout:" + this.getCost() + ")";
+	}
+	
+	public int getLetterNumber() {
+		return this.letterNumber;
 	}
 
+	public Inhabitant getSender() {
+		return this.sender;
+	}
+	
 	public Inhabitant getReceiver() {
-		return receiver;
+		return this.receiver;
+	}
+	
+	public void setCost(double cost) {
+		this.cost = cost;
 	}
 
 	public T getContent() {
-		return content;
+		return this.content;
 	}
 
-	public float getCost() {
-		return cost;
+	public double getCost() {
+		return this.cost;
 	}
 	
 }
