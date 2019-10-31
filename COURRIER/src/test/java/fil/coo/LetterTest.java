@@ -2,19 +2,46 @@ package fil.coo;
 
 import static org.junit.Assert.*;
 
+import org.junit.Before;
 import org.junit.Test;
 
 public abstract class LetterTest {
 
 	public abstract Letter<?> getTestedLetter();
 	
+	private Inhabitant sender;
+	private Inhabitant recipient;
+	private City city;
+	private Letter<?> testedLetter;
+	
+	/**
+	 * Create: the recipient, the sender and the city in which they live for the testedLetter
+	 */
+	@Before
+	public void letterSetup() {
+		this.city = new City("cityTest");
+		this.recipient = new Inhabitant("recipientTest", city, 10);
+		this.sender = new Inhabitant("senderTest", city, 10);
+		this.testedLetter = this.getTestedLetter();
+	}
+	
+	public City getCity() {
+		return city;
+	}
+
+	public Inhabitant getSender() {
+		return sender;
+	}
+
+	public Inhabitant getRecipient() {
+		return recipient;
+	}
+
 	@Test
 	public void receivedLetterDoesAction() {
-		Letter<?> letter = this.getTestedLetter();
-		InstrumentedLetter<?> instrumentedLetter = new InstrumentedLetter<>(letter);
-		Inhabitant inhabitant = new Inhabitant("inhabitantTest", null, 0);
+		InstrumentedLetter<?> instrumentedLetter = new InstrumentedLetter<>(this.testedLetter);
 		assertEquals(instrumentedLetter.getActionCounter(), 0);
-		inhabitant.receiveLetter(instrumentedLetter);
+		instrumentedLetter.getReceiver().receiveLetter(instrumentedLetter);
 		assertEquals(instrumentedLetter.getActionCounter(), 1);
 	}
 	
@@ -23,11 +50,6 @@ public abstract class LetterTest {
 		private Letter<T> containedLetter; 
 		private int actionCounter = 0;
 
-		public InstrumentedLetter(Inhabitant sender, Inhabitant receiver, T content) {
-			super(sender, receiver, content);
-			fail("This constructor can't be used");
-		}
-		
 		public InstrumentedLetter(Letter<T> letter) {
 			super(null,null,null);
 			this.containedLetter = letter;
@@ -41,7 +63,11 @@ public abstract class LetterTest {
 		public void action() {
 			this.actionCounter++;
 			this.containedLetter.action();
-			
+		}
+
+		@Override
+		public int getLetterNumber() {
+			return this.containedLetter.getLetterNumber();
 		}
 
 		@Override
@@ -60,11 +86,9 @@ public abstract class LetterTest {
 		}
 
 		@Override
-		public float getCost() {
+		public double getCost() {
 			return this.containedLetter.getCost();
 		}
-		
-		
 		
 	}
 }

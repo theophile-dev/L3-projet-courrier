@@ -1,6 +1,6 @@
 package fil.coo;
 
-public abstract class Letter<T extends Content>{
+public abstract class Letter<T extends Content> implements Content{
 	private Inhabitant sender;
 	private Inhabitant receiver;
 	private T content;
@@ -32,6 +32,7 @@ public abstract class Letter<T extends Content>{
 		return "Courrier" + this.getLetterNumber();
 	}
 	
+	@Override
 	public String getDescription() {
 		return this.getName() + "(cout:" + this.getCost() + ")";
 	}
