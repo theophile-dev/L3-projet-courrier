@@ -1,7 +1,7 @@
 package fil.coo;
 
 public class Text implements Content {
-	
+
 	private String text;
 
 	/**
@@ -19,5 +19,10 @@ public class Text implements Content {
 	public String getDescription() {
 		return this.getText();
 	}
-	
+
+	@Override
+	public Content copyContent() {
+		return new Text(this.getText());
+	}
+
 }

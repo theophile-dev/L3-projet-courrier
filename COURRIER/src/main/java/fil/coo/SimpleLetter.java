@@ -1,11 +1,12 @@
 package fil.coo;
 
-
 public class SimpleLetter extends Letter<Text> {
+
+	public static final double COST = 2;
 
 	public SimpleLetter(Inhabitant sender, Inhabitant receiver, Text content) {
 		super(sender, receiver, content);
-		this.setCost(0.5);
+		this.setCost(COST);
 
 	}
 
@@ -15,6 +16,11 @@ public class SimpleLetter extends Letter<Text> {
 	@Override
 	public void action() {
 		// does nothing
+	}
+
+	@Override
+	public Content copyContent() {
+		return new SimpleLetter(this.getSender(), this.getReceiver(), (Text) this.getContent().copyContent());
 	}
 
 }

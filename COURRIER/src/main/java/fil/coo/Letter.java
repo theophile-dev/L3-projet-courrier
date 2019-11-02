@@ -1,14 +1,13 @@
 package fil.coo;
 
-public abstract class Letter<T extends Content> implements Content{
+public abstract class Letter<T extends Content> implements Content {
 	private Inhabitant sender;
 	private Inhabitant receiver;
 	private T content;
 	private double cost;
 	private int letterNumber;
 	private static int numberOfLetter = 0;
-	
-	
+
 	/**
 	 * @param sender
 	 * @param receiver
@@ -22,21 +21,29 @@ public abstract class Letter<T extends Content> implements Content{
 		this.letterNumber = Letter.numberOfLetter;
 		Letter.numberOfLetter++;
 	}
-	
+
+	public void setSender(Inhabitant sender) {
+		this.sender = sender;
+	}
+
+	public void setReceiver(Inhabitant receiver) {
+		this.receiver = receiver;
+	}
+
 	/**
 	 * The action is triggered when an inhabitant open the letter
 	 */
 	public abstract void action();
-	
+
 	public String getName() {
 		return "Courrier" + this.getLetterNumber();
 	}
-	
+
 	@Override
 	public String getDescription() {
 		return this.getName() + "(cout:" + this.getCost() + ")";
 	}
-	
+
 	public int getLetterNumber() {
 		return this.letterNumber;
 	}
@@ -44,11 +51,11 @@ public abstract class Letter<T extends Content> implements Content{
 	public Inhabitant getSender() {
 		return this.sender;
 	}
-	
+
 	public Inhabitant getReceiver() {
 		return this.receiver;
 	}
-	
+
 	public void setCost(double cost) {
 		this.cost = cost;
 	}
@@ -60,5 +67,5 @@ public abstract class Letter<T extends Content> implements Content{
 	public double getCost() {
 		return this.cost;
 	}
-	
+
 }

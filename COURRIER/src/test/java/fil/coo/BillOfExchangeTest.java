@@ -1,9 +1,5 @@
 package fil.coo;
 
-
-
-import org.junit.Test;
-
 public class BillOfExchangeTest extends LetterTest {
 
 	@Override

@@ -11,7 +11,6 @@ public abstract class DecoratingLetter extends Letter<Letter<?>> {
 		this.getContent().action();
 	}
 
-
 	@Override
 	public double getCost() {
 		return this.getContent().getCost();
