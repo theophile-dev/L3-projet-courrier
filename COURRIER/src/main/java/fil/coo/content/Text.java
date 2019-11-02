@@ -1,12 +1,9 @@
-package fil.coo;
+package fil.coo.content;
 
 public class Text implements Content {
 
 	private String text;
 
-	/**
-	 * @param text
-	 */
 	public Text(String text) {
 		this.text = text;
 	}

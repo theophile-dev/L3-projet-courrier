@@ -1,11 +1,13 @@
-package fil.coo;
+package fil.coo.letter;
+
+import fil.coo.content.Content;
 
 public class RegisteredLetter extends DecoratingLetter {
 
-	public static final double OVERCOST_FACTOR = 1.15;
+	private static final double OVERCOST_FACTOR = 1.15;
 
 	public RegisteredLetter(Letter<?> insideLetter) {
-		super(insideLetter);
+		super(insideLetter, "Registered Letter");
 	}
 
 	@Override

@@ -5,14 +5,18 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
-public abstract class LetterTest {
+import fil.coo.content.Content;
+import fil.coo.letter.DecoratingLetter;
+import fil.coo.letter.Letter;
 
-	public abstract Letter<?> getTestedLetter();
+public abstract class LetterTest {
 
 	private Inhabitant sender;
 	private Inhabitant recipient;
 	private City city;
 	private Letter<?> testedLetter;
+	
+	public abstract Letter<?> getTestedLetter();
 
 	/**
 	 * Create: the recipient, the sender and the city in which they live for the
@@ -51,7 +55,7 @@ public abstract class LetterTest {
 		private int actionCounter = 0;
 
 		public InstrumentedLetter(Letter<?> insideLetter) {
-			super(insideLetter);
+			super(insideLetter, "Instrumented Letter");
 		}
 
 		public int getActionCounter() {

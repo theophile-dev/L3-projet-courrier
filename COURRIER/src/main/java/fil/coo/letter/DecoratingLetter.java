@@ -1,9 +1,9 @@
-package fil.coo;
+package fil.coo.letter;
 
 public abstract class DecoratingLetter extends Letter<Letter<?>> {
 
-	public DecoratingLetter(Letter<?> insideLetter) {
-		super(insideLetter.getSender(), insideLetter.getSender(), insideLetter);
+	public DecoratingLetter(Letter<?> insideLetter, String letterName) {
+		super(insideLetter.getSender(), insideLetter.getReceiver(), letterName, insideLetter);
 	}
 
 	@Override

@@ -1,12 +1,9 @@
-package fil.coo;
+package fil.coo.content;
 
 public class Money implements Content {
 
 	private double money;
 
-	/**
-	 * @param money
-	 */
 	public Money(double money) {
 		this.money = money;
 	}

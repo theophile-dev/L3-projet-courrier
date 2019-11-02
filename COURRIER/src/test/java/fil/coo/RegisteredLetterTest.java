@@ -5,12 +5,18 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
+import fil.coo.content.Text;
+import fil.coo.letter.AcknowledgementOfReceipt;
+import fil.coo.letter.Letter;
+import fil.coo.letter.RegisteredLetter;
+import fil.coo.letter.SimpleLetter;
+
 public class RegisteredLetterTest extends LetterTest {
 
 	@Override
 	public Letter<?> getTestedLetter() {
 		return new RegisteredLetter(
-				new SimpleLetter(this.getSender(), this.getRecipient(), new Text("letter content")));
+				new SimpleLetter(this.getSender(), this.getRecipient(),"Test Letter", new Text("text letter content test")));
 	}
 
 	@Test

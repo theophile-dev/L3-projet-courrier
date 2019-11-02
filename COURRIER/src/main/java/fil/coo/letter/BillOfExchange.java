@@ -1,12 +1,16 @@
-package fil.coo;
+package fil.coo.letter;
+
+import fil.coo.Inhabitant;
+import fil.coo.content.Content;
+import fil.coo.content.Money;
 
 public class BillOfExchange extends Letter<Money> {
 
-	public static final double OVERCOST_FACTOR = 0.1;
-	public static final double OVERCOST = 0.1;
+	private static final double OVERCOST_FACTOR = 0.1;
+	private static final double OVERCOST = 0.1;
 
 	public BillOfExchange(Inhabitant sender, Inhabitant receiver, Money content) {
-		super(sender, receiver, content);
+		super(sender, receiver, "Bill Of Exchange", content);
 		double cost = (this.getContent().getMoney() * OVERCOST_FACTOR) + OVERCOST;
 		this.setCost(cost);
 	}

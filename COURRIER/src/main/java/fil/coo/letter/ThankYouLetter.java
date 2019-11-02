@@ -1,15 +1,14 @@
-package fil.coo;
+package fil.coo.letter;
 
-public class ThankYouLetter extends Letter<Text> {
+import fil.coo.Inhabitant;
+import fil.coo.content.Content;
+import fil.coo.content.Text;
+
+public class ThankYouLetter extends SimpleLetter {
 
 	public ThankYouLetter(Inhabitant sender, Inhabitant receiver) {
-		super(sender, receiver, new Text(
+		super(sender, receiver, "Thank You Letter", new Text(
 				sender.getName() + " remercie " + receiver.getName() + " pour l'argent qui lui a était envoyé"));
-	}
-
-	@Override
-	public void action() {
-		// does nothing
 	}
 
 	@Override
