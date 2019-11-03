@@ -6,7 +6,7 @@ Authors : Théophile COSSE and Florian COVEY
 Courrier is a software written in JAVA that emulate letter sending and letterbox.
 
 ### UML Diagram
-![Image](DONJON/diag.png)
+![Image](COURRIER/uml.jpg)
 
 ## How To
 ### Installation
@@ -43,8 +43,10 @@ The Javadoc generated can be found in /COURRIER/target/docs/index.html
 
 ### Key aspect of the project
 
-* bla
+* To keep traces of every letter send and their content we chose to make the add the method getDescription() which return a string
+describing the content. 
 
-* blab
+* We had to face some difficulties with the creation of InstrumentedLetter class (used to test the triggering of the action()), but after realizing we were writing the same code as LetterDecorator we decided to used this class to create the instrumentedLetter instead of using the proxy design patter to do the same thing.
 
-* blabla
+* Using the default parameters for the Fool Letters given by the subject, the program was sometime stuck in a endless loop. But we quickly discovered that's because by sending 10 letters and with a probability of 15% to answer, there was always one or more inhabitant answering the lettter.
+
