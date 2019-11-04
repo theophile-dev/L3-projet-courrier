@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
+
 import fil.coo.Inhabitant;
 import fil.coo.content.Content;
 import fil.coo.content.InhabitantList;
 import fil.coo.content.Money;
-import fil.coo.content.Text;
 
 public class FoolLetter extends Letter<InhabitantList> {
 

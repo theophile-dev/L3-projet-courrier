@@ -9,7 +9,8 @@ public class UrgentLetterTest extends LetterTest {
 
 	@Override
 	public Letter<?> getTestedLetter() {
-		return new UrgentLetter(new SimpleLetter(this.getSender(), this.getRecipient(), "Test Letter", new Text("text letter content test")));
+		return new UrgentLetter(new SimpleLetter(this.getSender(), this.getRecipient(), "Test Letter",
+				new Text("text letter content test")));
 	}
 
 }

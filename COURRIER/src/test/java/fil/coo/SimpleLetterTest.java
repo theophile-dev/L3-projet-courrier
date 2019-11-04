@@ -8,7 +8,8 @@ public class SimpleLetterTest extends LetterTest {
 
 	@Override
 	public Letter<?> getTestedLetter() {
-		return new SimpleLetter(this.getSender(), this.getRecipient(), "Test Letter", new Text("text letter content test"));
+		return new SimpleLetter(this.getSender(), this.getRecipient(), "Test Letter",
+				new Text("text letter content test"));
 	}
 
 }
